@@ -1,0 +1,32 @@
+{
+    "manifest_version": 2,
+    "version": "1.0.0.1",
+    "name": "JobSitePlus's Preview",
+    "description": "ジョブサイトPlusから『ドライバーのおしごと』のプレビュー",
+    "icons": {
+        "32": "icons/4ball_32.png",
+        "48": "icons/4ball_48.png",
+        "128": "icons/4ball_128.png"
+    },
+    "content_scripts":[
+        {
+          "run_at": "document_end",
+          "matches": ["https://driverwork.jp/aspadmnt/index.cfm?fuseaction=job.edit*"],
+          "js": ["js/content_scripts.js"]
+        }
+    ],
+    "background": {
+        "scripts": ["js/background.js"],
+        "persistent": true
+    },
+    "page_action": {
+        "default_title": "ジョブサイトPlusの入力画面で『ドライバーのおしごと』での見た目を確認します",
+        "default_icon": {"19": "icons/4ball_19.png"}
+    },
+    "permissions": [
+            "tabs",
+            "activeTab",
+            "declarativeContent"
+        ],
+    "author": "MTZNo"
+}
